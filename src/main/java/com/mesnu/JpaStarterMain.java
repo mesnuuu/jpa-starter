@@ -8,11 +8,18 @@ import javax.persistence.Persistence;
 public class JpaStarterMain {
 	
 	public static void main(String[] args) {
-		System.out.println("ok");
+
 		
-		Employee employee = new Employee();
-		employee.setId(1);
-		employee.setName("Foo");
+		Employee employee1 = new Employee();
+		Employee employee2 = new Employee();
+		Employee employee3 = new Employee();
+		
+		employee1.setId(1);
+		employee1.setName("Foo");
+		employee2.setId(2);
+		employee2.setName("Barr");
+		employee3.setId(3);
+		employee3.setName("Tim");
 		
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
 		
@@ -22,7 +29,9 @@ public class JpaStarterMain {
 		
 		transaction.begin();
 		
-		entityManager.persist(employee);
+		entityManager.persist(employee1);
+		entityManager.persist(employee2);
+		entityManager.persist(employee3);
 		
 		transaction.commit();
 	}
