@@ -12,19 +12,14 @@ public class JpaStarterMain {
 	public static void main(String[] args) {
 
 		
-	//	Employee employee1 = new Employee();
 		
-		Employee employee2 = new Employee(2, "sam", "1234", new Date());
-		
-		
-
-		/*
-		 * employee1.setId(1); employee1.setName("Foo"); employee1.setNic("1234");
-		 * employee1.setDob(new Date());
-		 */
-		
-		
-
+		Employee employee1 = new Employee(
+											2, 
+											"sam", 
+											"1234", 
+											new Date(),
+											EmployeeType.CONTRACTOR );
+				
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
 		
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -32,10 +27,8 @@ public class JpaStarterMain {
 		EntityTransaction transaction = entityManager.getTransaction();
 		
 		transaction.begin();
-		
-	//	entityManager.persist(employee1);
-		
-		entityManager.persist(employee2);
+			
+		entityManager.persist(employee1);
 
 		transaction.commit();
 	}
