@@ -10,12 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import lombok.AllArgsConstructor;
+import javax.persistence.Transient;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 @Entity
 @Table(name = "EMPLOYEE_DATA")
  
@@ -36,6 +34,22 @@ public class Employee {
 	@Enumerated(EnumType.STRING)
 	private EmployeeType type;
 	
-//	@Column( insertable = false)
+	@Transient
+	private String debugString;
+
+
+	public Employee(int id, String name, String nic, Date dob, EmployeeType type) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.nic = nic;
+		this.dob = dob;
+		this.type = type;
+	}	
 	
 }
+
+
+
+
+//@Column( insertable = false)
