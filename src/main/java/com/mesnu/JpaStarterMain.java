@@ -24,7 +24,7 @@ public class JpaStarterMain {
 //		
 //		EntityManager entityManager = entityManagerFactory.createEntityManager();
 //		
-////		EntityTransaction transaction = entityManager.getTransaction();
+//		EntityTransaction transaction = entityManager.getTransaction();
 		
 //		transaction.begin();
 //			
@@ -38,6 +38,15 @@ public class JpaStarterMain {
 			
 		Employee emp = entityManager.find(Employee.class, 2);	
 		System.out.println(emp);
+		
+		emp.setName("John Smith");
+		
+		EntityTransaction transaction = entityManager.getTransaction();		
+		transaction.begin();	
+		entityManager.persist(emp);
+		transaction.commit();
+		
+
 		
 	}
 
