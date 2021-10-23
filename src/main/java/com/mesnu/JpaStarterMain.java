@@ -44,6 +44,7 @@ public class JpaStarterMain {
 		EntityTransaction transaction = entityManager.getTransaction();		
 		transaction.begin();	
 		entityManager.persist(emp);
+		entityManager.remove(emp);
 		transaction.commit();
 		
 
