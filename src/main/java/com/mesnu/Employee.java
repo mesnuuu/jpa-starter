@@ -12,8 +12,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "EMPLOYEE_DATA")
  
@@ -45,7 +47,15 @@ public class Employee {
 		this.nic = nic;
 		this.dob = dob;
 		this.type = type;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", nic=" + nic + ", dob=" + dob + ", type=" + type + "]";
 	}	
+	
+	
 	
 }
 

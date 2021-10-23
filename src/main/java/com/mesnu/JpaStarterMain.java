@@ -13,24 +13,32 @@ public class JpaStarterMain {
 
 		
 		
-		Employee employee1 = new Employee(
-											2, 
-											"sam", 
-											"1234", 
-											new Date(),
-											EmployeeType.CONTRACTOR );
+//		Employee employee1 = new Employee(
+//											2, 
+//											"sam", 
+//											"1234", 
+//											new Date(),
+//											EmployeeType.CONTRACTOR );
 				
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
+//		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
+//		
+//		EntityManager entityManager = entityManagerFactory.createEntityManager();
+//		
+////		EntityTransaction transaction = entityManager.getTransaction();
 		
+//		transaction.begin();
+//			
+//		entityManager.persist(employee1);
+//
+//		transaction.commit();
+		
+		
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");		
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		
-		EntityTransaction transaction = entityManager.getTransaction();
-		
-		transaction.begin();
 			
-		entityManager.persist(employee1);
-
-		transaction.commit();
+		Employee emp = entityManager.find(Employee.class, 2);	
+		System.out.println(emp);
+		
 	}
 
 }
