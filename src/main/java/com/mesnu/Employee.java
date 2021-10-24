@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -40,7 +41,7 @@ public class Employee {
 	@Transient
 	private String debugString;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	private AccessCard card;
 
 
@@ -57,7 +58,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", nic=" + nic + ", dob=" + dob + ", type=" + type + "]";
+		return "Employee [id=" + id + ", name=" + name + ", nic=" + nic + ", dob=" + dob + ", type=" + type + ", card="
+				+ card + "]";
 	}
 
 

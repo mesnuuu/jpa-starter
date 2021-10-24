@@ -2,3 +2,8 @@
 target/classes/META-INF/maven/com.mesnu/jpa-starter/pom.properties
 target/classes/com/mesnu/Employee.class
 target/classes/com/mesnu/JpaStarterMain.class
+*.MF
+*.class
+*.class
+target/classes/com/mesnu/AccessCard.class
+target/classes/com/mesnu/Employee.class
