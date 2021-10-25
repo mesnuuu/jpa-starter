@@ -1,18 +1,20 @@
 package com.mesnu;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -44,6 +46,8 @@ public class Employee {
 	@OneToOne
 	private AccessCard card;
 
+	@OneToMany(mappedBy = "employee")
+	private List<PayStub> payStub;
 
 	public Employee(int id, String name, String nic, Date dob, EmployeeType type, AccessCard card) {
 		
@@ -54,11 +58,11 @@ public class Employee {
 		this.type = type;
 		this.card = card;
 	}
-
+  
 
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + "]";
+		return "Employee [id=" + id + ", name=" + name + ", nic=" + nic + ", dob=" + dob + ", type=" + type + "]";
 	}		
 	
 	

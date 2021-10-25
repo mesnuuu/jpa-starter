@@ -38,8 +38,11 @@ public class AccessCard {
 
 	@Override
 	public String toString() {
-		return "AccessCard [issueDate=" + issueDate + ", isActive=" + isActive + ", owner=" + owner + "]";
+		return "AccessCard [id=" + id + ", issueDate=" + issueDate + ", isActive=" + isActive + ", firmwareVersion="
+				+ firmwareVersion + "]";
 	}
+
+
 
 
 	
