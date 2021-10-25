@@ -12,13 +12,14 @@ public class JpaStarterRead {
 	EntityManager entityManager = entityManagerFactory.createEntityManager();	
 
 	
-	Employee emp = entityManager.find(Employee.class, 2);
+	AccessCard card = entityManager.find(AccessCard.class, 1);
+	System.out.println(card);
 	
-	System.out.println("************* Fetched Employee");
-	System.out.println(emp.getName());
-	
-	System.out.println("************* Accessed Card");
-	System.out.println(emp.getCard());
+	Employee emp = entityManager.find(Employee.class, 31);
+	System.out.println(emp);
+		
+	// unable to fix defaul tostring call in this case
+
 	
 	}
 }

@@ -16,9 +16,13 @@ public class JpaStarterMain {
 		AccessCard card1 = new AccessCard(new Date(), true, "1.0.0");		
 		AccessCard card2 = new AccessCard(new Date(), false, "1.2.0");
 		
-		Employee emp1 = new Employee(1,"sam", "1234", new Date(), EmployeeType.CONTRACTOR, card1 );			
-		Employee emp2 = new Employee(2, "john", "4567", new Date(), EmployeeType.FULL_TIME, card2 );
+		Employee emp1 = new Employee(31,"sam", "1234", new Date(), EmployeeType.CONTRACTOR, card1 );			
+		Employee emp2 = new Employee(42, "john", "4567", new Date(), EmployeeType.FULL_TIME, card2 );
 
+		card1.setOwner(emp1);
+//		emp1.setCard(card1);
+//		card2.setOwner(emp2);
+//		emp2.setCard(card2);
 		
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");	
 		EntityManager entityManager = entityManagerFactory.createEntityManager();	
@@ -32,7 +36,8 @@ public class JpaStarterMain {
 		entityManager.persist(card2);
 							
 		transaction.commit();
-			
+		
+
 
 		
 	}

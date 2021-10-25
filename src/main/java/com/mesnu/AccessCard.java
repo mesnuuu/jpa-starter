@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,13 +25,23 @@ public class AccessCard {
 	private boolean isActive;
 	
 	private String firmwareVersion;
+	
+	@OneToOne(mappedBy = "card")
+	private Employee owner;
 
 	public AccessCard(Date issueDate, boolean isActive, String firmwareVersion) {
-		super();
+		
 		this.issueDate = issueDate;
 		this.isActive = isActive;
 		this.firmwareVersion = firmwareVersion;
 	}
+
+	@Override
+	public String toString() {
+		return "AccessCard [issueDate=" + issueDate + ", isActive=" + isActive + ", owner=" + owner + "]";
+	}
+
+
 	
 	
 
