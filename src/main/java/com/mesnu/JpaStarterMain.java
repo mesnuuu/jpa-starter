@@ -27,7 +27,19 @@ public class JpaStarterMain {
 		PayStub payStub1 = new PayStub(new Date(), new Date(), 1000, emp1);
 		PayStub payStub2 = new PayStub(new Date(), new Date(), 5530, emp1);
 		
-		emp1.setPayStub(List.of(payStub1, payStub2));
+		emp1.addPayStub(payStub1);
+		emp1.addPayStub(payStub2);
+		
+		EmailGroup group1 = new EmailGroup("Company Water cooler discussion");
+		EmailGroup group2 = new EmailGroup("Engineering");
+
+		group1.addMember(emp1);
+		group1.addMember(emp2);
+		emp1.addEmailSubscription(group1);
+		emp2.addEmailSubscription(group1);
+		
+		group2.addMember(emp1);
+		emp1.addEmailSubscription(group2);
 		
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");	
 		EntityManager entityManager = entityManagerFactory.createEntityManager();	
@@ -43,6 +55,9 @@ public class JpaStarterMain {
 		
 		entityManager.persist(payStub1);
 		entityManager.persist(payStub2);
+		
+		entityManager.persist(group1);
+		entityManager.persist(group2);
 							
 		transaction.commit();
 		

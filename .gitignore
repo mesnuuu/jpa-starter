@@ -7,3 +7,5 @@ target/classes/com/mesnu/JpaStarterMain.class
 *.class
 target/classes/com/mesnu/AccessCard.class
 target/classes/com/mesnu/Employee.class
+*.prefs
+*.class

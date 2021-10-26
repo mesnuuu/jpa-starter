@@ -1,5 +1,6 @@
 package com.mesnu;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -47,7 +49,10 @@ public class Employee {
 	private AccessCard card;
 
 	@OneToMany(mappedBy = "employee")
-	private List<PayStub> payStub;
+	private List<PayStub> payStub = new ArrayList<>();
+	
+	@ManyToMany
+	private List<EmailGroup> emailGroups = new ArrayList<EmailGroup>();
 
 	public Employee(int id, String name, String nic, Date dob, EmployeeType type, AccessCard card) {
 		
@@ -59,6 +64,13 @@ public class Employee {
 		this.card = card;
 	}
   
+	public void addPayStub(PayStub payStub) {
+		this.payStub.add(payStub);
+	}
+	
+	public void addEmailSubscription(EmailGroup emailGroup) {
+		this.emailGroups.add(emailGroup);
+	}
 
 	@Override
 	public String toString() {
