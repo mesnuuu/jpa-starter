@@ -29,6 +29,9 @@ public class JpaStarterRead {
 	Employee emp = entityManager.find(Employee.class, 31);
 	System.out.println(emp.getPayStub());
 
+	EmailGroup emailGroup = entityManager.find(EmailGroup.class, 5);
+	System.out.println(emailGroup);
+	
 	
 	}
 }

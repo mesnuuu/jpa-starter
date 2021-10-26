@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity
 public class EmailGroup {
 	
@@ -30,6 +32,11 @@ public class EmailGroup {
 	
 	public void addMember(Employee employee) {
 		this.members.add(employee);
+	}
+
+	@Override
+	public String toString() {
+		return "EmailGroup [id=" + id + ", name=" + name + ", members=" + members + "]";
 	}
 	
 	

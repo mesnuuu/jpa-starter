@@ -8,7 +8,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -51,7 +54,14 @@ public class Employee {
 	@OneToMany(mappedBy = "employee")
 	private List<PayStub> payStub = new ArrayList<>();
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
+	
+	@JoinTable(name = "Email_Group_Subcriptions",
+	
+			joinColumns = @JoinColumn(name= "EMPLOYEE_ID"),
+			
+				inverseJoinColumns =  @JoinColumn(name= "SUBSCRIPTION_EMAIL_ID")
+	)
 	private List<EmailGroup> emailGroups = new ArrayList<EmailGroup>();
 
 	public Employee(int id, String name, String nic, Date dob, EmployeeType type, AccessCard card) {
